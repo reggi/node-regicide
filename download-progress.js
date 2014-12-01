@@ -5,9 +5,9 @@ var progress = require("progress");
 
 module.exports = downloadProgress;
 
-function downloadProgress(options, callback) {
+function downloadProgress(url, file_dest, callback) {
   request({
-    url: options.url,
+    url: url,
     headers: {
       'User-Agent': "reggi-utils",
       "Accept": "application/octet-stream"
@@ -26,5 +26,5 @@ function downloadProgress(options, callback) {
     .on('data', function(chunk) {
       bar.tick(chunk.length);
     })
-    .pipe(fs.createWriteStream(options.file_dest));
+    .pipe(fs.createWriteStream(file_dest));
 }

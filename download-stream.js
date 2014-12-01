@@ -4,9 +4,9 @@ var path = require("path");
 
 module.exports = downloadStream;
 
-function downloadStream(options, callback) {
+function downloadStream(url, file_dest, callback) {
   request({
-    url: options.url,
+    url: url,
     headers: {
       'User-Agent': "reggi-utils",
       "Accept": "application/octet-stream"
@@ -14,5 +14,5 @@ function downloadStream(options, callback) {
   })
     .on('end', callback)
     .on('error', callback)
-    .pipe(fs.createWriteStream(options.file_dest));
+    .pipe(fs.createWriteStream(file_dest));
 }

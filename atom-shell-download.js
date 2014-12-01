@@ -86,10 +86,7 @@ function atomShellDownload(options, callback) {
         async.map(downloads, function(download, callback) {
           if (download.exists) return callback(null, new Error(download.name + " download exists"));
           var dl = (options.download_progress) ? downloadProgress : downloadStream;
-          return dl({
-            "url": download.browser_download_url,
-            "file_dest": download.file_dest,
-          }, callback);
+          return dl(download.browser_download_url, download.file_dest, callback);
         }, callback);
       }
     ]
