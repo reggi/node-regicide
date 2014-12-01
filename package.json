@@ -1,6 +1,6 @@
 {
   "name": "regicide",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of one-off functions.",
   "main": "index.js",
   "author": "Thomas Reggi",
